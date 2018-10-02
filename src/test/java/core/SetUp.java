@@ -15,13 +15,13 @@ public class SetUp {
 
     public SetUp(WebDriver browser){
         this.browser = browser;
-        wait = new WebDriverWait(browser ,SECONDS);
     }
 
     public MainPage openMainPage() {
 
         System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
         browser = new ChromeDriver();
+        wait = new WebDriverWait(browser ,SECONDS);
         browser.get("https://www.google.com");
         browser.manage().window().maximize();
         assertThat(browser.getCurrentUrl()).isEqualTo("https://www.google.com/");
