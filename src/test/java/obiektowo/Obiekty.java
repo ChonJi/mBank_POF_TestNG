@@ -68,6 +68,10 @@ public class Obiekty {
             }
         }
 
+        int urodziny() {
+            return wiek += 1;
+        }
+
     }
 
 
