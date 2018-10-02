@@ -29,50 +29,50 @@ public class Obiekty {
         asia.umiejetnosci.add("Testowanie");
         asia.wypiszUmiejetnosci();
     }
+}
 
 
-    static class Tester {
+class Tester {
 
-        String imię, nazwisko;
-        int wiek;
-        boolean projekt;
-        List<String> umiejetnosci = new ArrayList<>();
+    String imię, nazwisko;
+    int wiek;
+    boolean projekt;
+    List<String> umiejetnosci = new ArrayList<>();
 
-        void pijKawe() {
-            System.out.println(imię + " PIJĘ KAWĘ.");
-        }
-
-        void testuj() {
-            System.out.println(imię + " PRACUJE.");
-        }
-
-        String informacjaOProjekcie() {
-            if (projekt) {
-                return " Obecnie mam projekt.";
-            } else
-                return " Aktualnie poszukuję projektu.";
-        }
-
-        String przedstawSie() {
-            return "Nazywam się " + imię + " " + nazwisko + ". Mam " + wiek + " lat." + informacjaOProjekcie();
-        }
-
-        void wypiszUmiejetnosci() {
-
-            int i = 1;
-
-            System.out.println(imię + " umiem:");
-            for (String s : umiejetnosci) {
-                System.out.println(i + ". " + s);
-                i++;
-            }
-        }
-
-        int urodziny() {
-            return wiek += 1;
-        }
-
+    void pijKawe() {
+        System.out.println(imię + " PIJĘ KAWĘ.");
     }
 
+    void testuj() {
+        System.out.println(imię + " PRACUJE.");
+    }
+
+    String informacjaOProjekcie() {
+        if (projekt) {
+            return " Obecnie mam projekt.";
+        } else
+            return " Aktualnie poszukuję projektu.";
+    }
+
+    String przedstawSie() {
+        return "Nazywam się " + imię + " " + nazwisko + ". Mam " + wiek + " lat." + informacjaOProjekcie();
+    }
+
+    void wypiszUmiejetnosci() {
+
+        int i = 1;
+
+        System.out.println(imię + " umiem:");
+        for (String s : umiejetnosci) {
+            System.out.println(i + ". " + s);
+            i++;
+        }
+    }
+
+    int urodziny() {
+        return wiek += 1;
+    }
 
 }
+
+
