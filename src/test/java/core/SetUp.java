@@ -9,19 +9,19 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class SetUp {
 
-    private static final int WAIT = 30;
+    private static final int SECONDS = 30;
     protected WebDriver browser;
     protected WebDriverWait wait;
 
     public SetUp(WebDriver browser){
         this.browser = browser;
+        wait = new WebDriverWait(browser ,SECONDS);
     }
 
     public MainPage openMainPage() {
 
         System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
         browser = new ChromeDriver();
-        wait = new WebDriverWait(browser ,WAIT);
         browser.get("https://www.google.com");
         browser.manage().window().maximize();
         assertThat(browser.getCurrentUrl()).isEqualTo("https://www.google.com/");
