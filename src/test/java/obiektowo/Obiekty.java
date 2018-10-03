@@ -35,6 +35,7 @@ public class Obiekty {
         System.out.println();
         maciek.plec();
         asia.plec();
+        //pierwszy test
         Assertions.assertThat(maciek.plec()).isEqualTo("mężczyzna");
     }
 }
