@@ -1,5 +1,7 @@
 package obiektowo;
 
+import org.assertj.core.api.Assertions;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,6 +30,12 @@ public class Obiekty {
         asia.umiejetnosci.add("Java");
         asia.umiejetnosci.add("Testowanie");
         asia.wypiszUmiejetnosci();
+
+        System.out.println(maciek.imieINazwisko());
+        System.out.println();
+        maciek.plec();
+        asia.plec();
+        Assertions.assertThat(maciek.plec()).isEqualTo("mężczyzna");
     }
 }
 
@@ -40,7 +48,7 @@ class Tester {
     List<String> umiejetnosci = new ArrayList<>();
 
     void pijKawe() {
-        System.out.println(imię + " PIJĘ KAWĘ.");
+        System.out.println(imię + " PIJE KAWĘ.");
     }
 
     void testuj() {
@@ -71,6 +79,19 @@ class Tester {
 
     int urodziny() {
         return wiek += 1;
+    }
+
+    String imieINazwisko() {
+        return imię + " " + nazwisko;
+    }
+
+    String plec() {
+        if (imię.endsWith("a")) {
+            System.out.println(imię + " to kobieta.");
+            return "kobieta";
+        } else
+            System.out.println(imię + " to mężczyzna.");
+            return "mężczyzna";
     }
 
 }
