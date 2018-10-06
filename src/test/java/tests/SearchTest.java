@@ -5,13 +5,17 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import pages.DoodlePage;
 import pages.MainPage;
+
+import static data.SearchTestData.SEARCH_PHASE;
 
 public class SearchTest {
 
     private WebDriver browser;
     private WebDriverWait wait;
     private MainPage mainPage;
+    private DoodlePage doodlePage;
 
     @BeforeClass
     private void run() {
@@ -20,7 +24,13 @@ public class SearchTest {
 
     @Test()
     private void shouldSendTextToSearchBox() {
-        mainPage.searchByKeys("Dupa");
+        mainPage.searchByKeys(SEARCH_PHASE);
+        mainPage.clearSearchInput(SEARCH_PHASE);
+    }
+
+    @Test(dependsOnMethods = "shouldSendTextToSearchBox")
+    private void shouldGoToDoodlePage() {
+        doodlePage = mainPage.goToDoodlePage();
     }
 
     @AfterClass(alwaysRun = true)
