@@ -2,6 +2,7 @@ package core;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.MainPage;
 
@@ -13,8 +14,10 @@ public class SetUp {
     protected WebDriver browser;
     protected WebDriverWait wait;
 
-    public SetUp(WebDriver browser){
+    public SetUp(WebDriver browser, WebDriverWait wait){
         this.browser = browser;
+        this.wait = wait;
+        PageFactory.initElements(browser, this);
     }
 
     public MainPage openMainPage() {
@@ -25,7 +28,7 @@ public class SetUp {
         browser.get("https://www.google.com");
         browser.manage().window().maximize();
         assertThat(browser.getCurrentUrl()).isEqualTo("https://www.google.com/");
-        return new MainPage(browser);
+        return new MainPage(browser, wait);
     }
 
 

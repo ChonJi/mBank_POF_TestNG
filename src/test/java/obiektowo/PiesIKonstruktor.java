@@ -15,6 +15,7 @@ class Pies {
     boolean czyGlodny, szczesliwy;
 
     Pies() {
+        imie = "Rex";
         System.out.println("Wywołałem konstruktor psa.");
         sprawdzStanPsa();
     }

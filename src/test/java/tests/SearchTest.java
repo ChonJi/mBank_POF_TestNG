@@ -1,7 +1,7 @@
 package tests;
 
-import core.SetUp;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -10,14 +10,12 @@ import pages.MainPage;
 public class SearchTest {
 
     private WebDriver browser;
+    private WebDriverWait wait;
     private MainPage mainPage;
-    private SetUp setUp;
-
 
     @BeforeClass
     private void run() {
-        setUp = new SetUp(browser);
-        mainPage = setUp.openMainPage();
+        mainPage = new MainPage(browser, wait).openMainPage();
     }
 
     @Test()
@@ -27,7 +25,7 @@ public class SearchTest {
 
     @AfterClass(alwaysRun = true)
     private void tearDown() {
-        setUp.quit();
+        mainPage.quit();
     }
 
 }
