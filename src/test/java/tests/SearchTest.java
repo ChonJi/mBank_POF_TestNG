@@ -8,7 +8,9 @@ import org.testng.annotations.Test;
 import pages.DoodlePage;
 import pages.MainPage;
 
+import static data.SearchTestData.DOODLE_HEADER;
 import static data.SearchTestData.SEARCH_PHASE;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class SearchTest {
 
@@ -31,6 +33,7 @@ public class SearchTest {
     @Test(dependsOnMethods = "shouldSendTextToSearchBox")
     private void shouldGoToDoodlePage() {
         doodlePage = mainPage.goToDoodlePage();
+        assertThat(doodlePage.getHeaderText()).isEqualTo(DOODLE_HEADER);
     }
 
     @AfterClass(alwaysRun = true)
